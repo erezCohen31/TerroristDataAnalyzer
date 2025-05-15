@@ -28,7 +28,7 @@ namespace TerroristDataAnalyzer
 
         static void seedData()
         {
-            var sampleTerrorists = new List<Terrorist>
+            List<Terrorist> terrorists = new List<Terrorist>
     {
         new Terrorist("Ahmed", "AK-47", 30, (32.08, 34.78), "Group A"),
         new Terrorist("Khaled", "RPG", 25, (31.76, 35.21), "Group B"),
@@ -39,7 +39,7 @@ namespace TerroristDataAnalyzer
         new Terrorist("Hassan", "Knife", 23, (30.52, 36.24), "Group C")
     };
 
-            foreach (var terrorist in sampleTerrorists)
+            foreach (Terrorist terrorist in terrorists)
             {
                 terroristList.Add(terrorist);
 
@@ -93,7 +93,7 @@ namespace TerroristDataAnalyzer
             }
         }
 
-        static string FindTheLeastCommonWeapon()
+        static void FindTheLeastCommonWeapon()
         {
             int minWeapon = numberOfWeapons.Values.First();
             string leastWeapon = numberOfWeapons.Keys.First();
@@ -107,10 +107,9 @@ namespace TerroristDataAnalyzer
                 }
             }
             Console.WriteLine($"Least common weapon: {leastWeapon} ({minWeapon} times)");
-            return leastWeapon;
         }
 
-        static string FindTheMostCommonWeapon()
+        static void FindTheMostCommonWeapon()
         {
             int maxWeapon = numberOfWeapons.Values.First();
             string mostWeapon = numberOfWeapons.Keys.First();
@@ -124,10 +123,10 @@ namespace TerroristDataAnalyzer
                 }
             }
             Console.WriteLine($"Most common weapon: {mostWeapon} ({maxWeapon} times)");
-            return mostWeapon;
+            
         }
 
-        static string organizationWithTheLeastMembers()
+        static void organizationWithTheLeastMembers()
         {
             int minOrganization = organizationByNumber.Values.First();
             string leastOrganization = organizationByNumber.Keys.First();
@@ -141,10 +140,9 @@ namespace TerroristDataAnalyzer
                 }
             }
             Console.WriteLine($"Organization with least members: {leastOrganization} ({minOrganization} members)");
-            return leastOrganization;
         }
 
-        static string organizationWithTheMostMembers()
+        static void organizationWithTheMostMembers()
         {
             int maxOrganization = organizationByNumber.Values.First();
             string mostOrganization = organizationByNumber.Keys.First();
@@ -158,7 +156,6 @@ namespace TerroristDataAnalyzer
                 }
             }
             Console.WriteLine($"Organization with most members: {mostOrganization} ({maxOrganization} members)");
-            return mostOrganization;
         }
 
         static (Terrorist, Terrorist) Find2TerroristClosest((double lat, double lont) myLocation)
@@ -201,9 +198,9 @@ namespace TerroristDataAnalyzer
         static void menu()
         {
             seedData();
-            bool keepingRun = true;
+            bool keepRunnig = true;
 
-            while (keepingRun)
+            while (keepRunnig)
             {
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1 - Most common weapon");
@@ -237,7 +234,7 @@ namespace TerroristDataAnalyzer
                         break;
                     case 6:
                         Console.WriteLine("bye bye");
-                        keepingRun = false;
+                        keepRunnig = false;
                         break;
                     default:
                         Console.WriteLine("your choice not exist");
