@@ -189,8 +189,9 @@ namespace TerroristDataAnalyzer
                 }
             }
 
-            Console.WriteLine($"Closest Terrorist: {closestTerrorist.Item1.name} at distance {firstminDistance}");
-            Console.WriteLine($"Second Closest Terrorist: {closestTerrorist.Item2.name} at distance {secondminDistance}");
+            Console.WriteLine($"Closest Terrorist: {closestTerrorist.Item1.name} at distance {firstminDistance:F2}");
+            Console.WriteLine($"Second Closest Terrorist: {closestTerrorist.Item2.name} at distance {secondminDistance:F2}");
+
 
             return closestTerrorist;
         }
